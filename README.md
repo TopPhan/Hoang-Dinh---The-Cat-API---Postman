@@ -23,8 +23,11 @@ Project Structure
 
 Hoàng Đỉnh - The Cat API.postman_collection.json: 	Main Postman collection with test scripts
 MY_SERVICE_API_KEY=DEV.postman_environment.json:	Environment file with API key
+
 Test Flow.xlsx:										Visual flowchart of the test logic
+
 schemas/											JSON schema definitions
+
 screenshots/										Screenshots of test results,variables,request...etc.
 
 
@@ -69,27 +72,39 @@ Performance & Reliability Techniques
 To ensure speed and consistency, the project applies several advanced techniques:
 
 ** Conditional Execution
+
     - Uses pm.execution.setNextRequest() to control flow based on test outcomes.
+	
     - Stops execution immediately if critical steps fail (e.g., missing UploadImage_id).
 	
 ** Dynamic Variable Management
+
 	- Stores runtime data like UploadImage_id, base_url, api-key, etc.
+	
 	- Enables cross-request validation with high precision.
 	
 ** Schema Validation with AJV
+
 	- Uses the Ajv library to validate JSON responses against strict schemas.
+	
 	- Provides detailed error messages for debugging.
 	
 ** Smart Retry Logic
+
 	- Implements retry mechanism for DELETE requests (up to 3 attempts).
+	
 	- Improves reliability when API responses are inconsistent.
 	
 ** Performance Checks
+
 	- Validates response time : etc (< 500ms) and payload size etc (< 2KB).
+	
 	- Ensures the API remains fast and lightweight.
 	
 ** Security Header Validation
+
 	- Verifies headers like x-frame-options and x-content-type-options.
+	
 	- Ensures basic security compliance.
 
 Test Summary
