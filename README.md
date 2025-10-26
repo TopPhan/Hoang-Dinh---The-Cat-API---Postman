@@ -1,4 +1,4 @@
-🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
+🐈 The Cat API Testing Project - https://thecatapi.com
 
 📅 Execution Period: October 19, 2025 – October 26, 2025
 
@@ -12,7 +12,13 @@ focusing on CRUD operations for image and breed data, ensuring stability and spe
 
 
 
+
+
 Quick Setup & Demo
+
+
+The Cat API specification here: https://documenter.getpostman.com/view/5578104/RWgqUxxh#8606c7c6-338e-46aa-8f1a-3335ed2b8127
+
 
 1. Download & Import: Grab both the Collection (Hoàng Đỉnh - The Cat API.postman_collection.json) and the Environment (MY_SERVICE_API_KEY=DEV.postman_environment.json).
 
