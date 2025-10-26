@@ -4,7 +4,7 @@
 
 👤 Tester: Hoàng Đỉnh
 
-
+---
 OVERVIEW
 
 Hello! This project showcases how I use Postman scripting to take API
@@ -13,7 +13,7 @@ focusing on CRUD operations for image and breed data, ensuring stability and spe
 
 
 
-
+---
 QUICK SETUP & DEMO
 
 
@@ -27,7 +27,7 @@ The Cat API specification here: https://documenter.getpostman.com/view/5578104/R
 3. Run Collection: Use the Collection Runner to execute the main Image Validation (CRUD) folder. The entire process will run and validate itself automatically!
 
 
-
+---
 PROJECT STRUCTURE
 
 Hoàng Đỉnh - The Cat API.postman_collection.json: 	Main Postman collection with test scripts
@@ -41,7 +41,7 @@ screenshots/										Screenshots of test results,variables,request...etc.
 
 
 
-
+---
 TEST FLOW LOGIC
 
 The test suite follows a structured flow based on conditional execution:
@@ -119,7 +119,7 @@ To ensure speed and consistency, the project applies several advanced techniques
 	
 	- Ensures basic security compliance.
 
-
+---
 TEST SUMMARY
 
 - Total tests executed: 36
@@ -129,7 +129,7 @@ TEST SUMMARY
 - Failures are logged with detailed messages and conditional halts.
 
 
-
+---
 SPRINT PLANNING & AGILE WORKFLOW
 
 This project followed Agile with four focused sprints, each delivering key components of the automated testing suite:
@@ -158,7 +158,7 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 - Organize project files, schemas, and screenshots
 
 
-
+---
 NOTES:
 - The project was conducted independently by a single tester, with the use of automation tools.
  + Collection runner
