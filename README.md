@@ -5,7 +5,7 @@
 👤 Tester: Hoàng Đỉnh
 
 
-Overview
+OVERVIEW
 
 Hello! This project showcases how I use Postman scripting to take API
 focusing on CRUD operations for image and breed data, ensuring stability and speed in complex workflows.
@@ -14,7 +14,7 @@ focusing on CRUD operations for image and breed data, ensuring stability and spe
 
 
 
-Quick Setup & Demo
+QUICK SETUP & DEMO
 
 
 The Cat API specification here: https://documenter.getpostman.com/view/5578104/RWgqUxxh#8606c7c6-338e-46aa-8f1a-3335ed2b8127
@@ -28,7 +28,7 @@ The Cat API specification here: https://documenter.getpostman.com/view/5578104/R
 
 
 
-Project Structure
+PROJECT STRUCTURE
 
 Hoàng Đỉnh - The Cat API.postman_collection.json: 	Main Postman collection with test scripts
 MY_SERVICE_API_KEY=DEV.postman_environment.json:	Environment file with API key
@@ -42,7 +42,7 @@ screenshots/										Screenshots of test results,variables,request...etc.
 
 
 
-Test Flow Logic
+TEST FLOW LOGIC
 
 The test suite follows a structured flow based on conditional execution:
 
@@ -79,7 +79,7 @@ The test suite follows a structured flow based on conditional execution:
 ---
 
 
-Performance & Reliability Techniques
+PERFORMANCE & RELIABILITY TECHNIQUES
 
 To ensure speed and consistency, the project applies several advanced techniques:
 
@@ -120,7 +120,7 @@ To ensure speed and consistency, the project applies several advanced techniques
 	- Ensures basic security compliance.
 
 
-Test Summary
+TEST SUMMARY
 
 - Total tests executed: 36
 - Execution time: ~10.6 seconds
@@ -130,7 +130,7 @@ Test Summary
 
 
 
-Sprint Planning & Agile Workflow
+SPRINT PLANNING & AGILE WORKFLOW
 
 This project followed Agile with four focused sprints, each delivering key components of the automated testing suite:
 
@@ -159,7 +159,7 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 
 
 
-Notes:
+NOTES:
 - The project was conducted independently by a single tester, with the use of automation tools.
  + Collection runner
  + Postman Environment
