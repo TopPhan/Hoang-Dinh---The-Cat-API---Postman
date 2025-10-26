@@ -4,10 +4,12 @@
 
 👤 Tester: Hoàng Đỉnh
 
+
 Overview
 
 Hello! This project showcases how I use Postman scripting to take API
 focusing on CRUD operations for image and breed data, ensuring stability and speed in complex workflows.
+
 
 
 Quick Setup & Demo
@@ -17,6 +19,7 @@ Quick Setup & Demo
 2. Select & Go: Ensure the MY_SERVICE_API_KEY=DEV Environment is selected.
 
 3. Run Collection: Use the Collection Runner to execute the main Image Validation (CRUD) folder. The entire process will run and validate itself automatically!
+
 
 
 Project Structure
@@ -29,6 +32,7 @@ Test Flow.xlsx:										Visual flowchart of the test logic
 schemas/											JSON schema definitions
 
 screenshots/										Screenshots of test results,variables,request...etc.
+
 
 
 Test Flow Logic
@@ -66,6 +70,7 @@ The test suite follows a structured flow based on conditional execution:
    - ✅ Confirm deletion via retry **GET /images?limit=10**
 
 ---
+
 
 Performance & Reliability Techniques
 
@@ -107,6 +112,7 @@ To ensure speed and consistency, the project applies several advanced techniques
 	
 	- Ensures basic security compliance.
 
+
 Test Summary
 
 - Total tests executed: 36
@@ -114,6 +120,7 @@ Test Summary
 - Average response time: ~1.6 seconds
 - Pass rate: >90%
 - Failures are logged with detailed messages and conditional halts.
+
 
 
 Sprint Planning & Agile Workflow
@@ -142,6 +149,7 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 - Capture screenshots and test results
 - Finalize README and test instructions
 - Organize project files, schemas, and screenshots
+
 
 
 Notes:
