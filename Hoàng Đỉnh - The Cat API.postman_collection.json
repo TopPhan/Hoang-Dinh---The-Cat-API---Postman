@@ -1,0 +1,1365 @@
+{
+	"info": {
+		"_postman_id": "917de774-2d64-46a7-b912-fe86bc98a9f2",
+		"name": "Hoàng Đỉnh - The Cat API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46399086",
+		"_collection_link": "https://gold-crater-4961696.postman.co/workspace/Ho%C3%A0ng-%C4%90%E1%BB%89nh's-Workspace~f45a1028-e764-4a8b-8f26-c751d1acd10b/collection/46399086-917de774-2d64-46a7-b912-fe86bc98a9f2?action=share&source=collection_link&creator=46399086"
+	},
+	"item": [
+		{
+			"name": "Image Validation (CRUD)",
+			"item": [
+				{
+					"name": "Get-All-Breeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"TC1 - Call API sucess to get all breeds, status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Get response of first breed\r",
+									"const response = pm.response.json();\r",
+									"const firstbreeds = response.length > 0 ? response[0] : null;\r",
+									"\r",
+									"// Make Schema valadation for get all breeds.\r",
+									"const breedSchemaObject = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"weight\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"imperial\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"metric\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"imperial\",\r",
+									"        \"metric\"\r",
+									"      ]\r",
+									"    },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"cfa_url\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"vetstreet_url\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"vcahospitals_url\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"temperament\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"origin\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"country_codes\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"country_code\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"description\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"life_span\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"indoor\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"lap\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"alt_names\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"adaptability\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"affection_level\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"child_friendly\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"dog_friendly\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"energy_level\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"grooming\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"health_issues\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"intelligence\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"shedding_level\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"social_needs\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"stranger_friendly\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"vocalisation\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"experimental\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"hairless\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"natural\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"rare\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"rex\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"suppressed_tail\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"short_legs\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"wikipedia_url\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"hypoallergenic\": {\r",
+									"      \"type\": \"integer\"\r",
+									"    },\r",
+									"    \"reference_image_id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"image\": {\r",
+									"      \"type\": \"object\",\r",
+									"      \"properties\": {\r",
+									"        \"id\": {\r",
+									"          \"type\": \"string\"\r",
+									"        },\r",
+									"        \"width\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"height\": {\r",
+									"          \"type\": \"integer\"\r",
+									"        },\r",
+									"        \"url\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      },\r",
+									"      \"required\": [\r",
+									"        \"id\",\r",
+									"        \"width\",\r",
+									"        \"height\",\r",
+									"        \"url\"\r",
+									"      ]\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"weight\",\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"cfa_url\",\r",
+									"    \"vetstreet_url\",\r",
+									"    \"vcahospitals_url\",\r",
+									"    \"temperament\",\r",
+									"    \"origin\",\r",
+									"    \"country_codes\",\r",
+									"    \"country_code\",\r",
+									"    \"description\",\r",
+									"    \"life_span\",\r",
+									"    \"indoor\",\r",
+									"    \"lap\",\r",
+									"    \"alt_names\",\r",
+									"    \"adaptability\",\r",
+									"    \"affection_level\",\r",
+									"    \"child_friendly\",\r",
+									"    \"dog_friendly\",\r",
+									"    \"energy_level\",\r",
+									"    \"grooming\",\r",
+									"    \"health_issues\",\r",
+									"    \"intelligence\",\r",
+									"    \"shedding_level\",\r",
+									"    \"social_needs\",\r",
+									"    \"stranger_friendly\",\r",
+									"    \"vocalisation\",\r",
+									"    \"experimental\",\r",
+									"    \"hairless\",\r",
+									"    \"natural\",\r",
+									"    \"rare\",\r",
+									"    \"rex\",\r",
+									"    \"suppressed_tail\",\r",
+									"    \"short_legs\",\r",
+									"    \"wikipedia_url\",\r",
+									"    \"hypoallergenic\",\r",
+									"    \"reference_image_id\",\r",
+									"    \"image\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"TC2 - Schema Validation - Response contains all expect fields with correct format.\", function () { \r",
+									"\r",
+									"    // 1. Initialize Ajv and compile the Schema\r",
+									"    const Ajv = require('ajv');\r",
+									"    const ajv = new Ajv({ allErrors: true, verbose: true }); \r",
+									"    const validate = ajv.compile(breedSchemaObject); \r",
+									"\r",
+									"    // 2. Execute validation\r",
+									"    const isValid = validate(firstbreeds);\r",
+									"    if (!isValid) {\r",
+									"        // Use throw new Error to clearly display detailed errors from Ajv\r",
+									"        throw new Error(\r",
+									"            \"Schema Validation FAILED! Details: \\n\" +\r",
+									"            JSON.stringify(validate.errors, null, 2)\r",
+									"        );\r",
+									"    }\r",
+									"        pm.expect(isValid).to.be.true;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"TC3 - Verify specific breed details (Name and Origin)\", function () {\r",
+									"    // Get variable name, origin, country_code.\r",
+									"    const breed_name = pm.collectionVariables.get(\"breeds_name\");\r",
+									"    const breed_origin = pm.collectionVariables.get(\"breeds_origin\");\r",
+									"    const breed_country_codes = pm.collectionVariables.get(\"breeds_country_codes\");\r",
+									"\r",
+									"    pm.expect(firstbreeds.name).to.eql(breed_name); \r",
+									"    pm.expect(firstbreeds.origin).to.eql(breed_origin);    \r",
+									"    pm.expect(firstbreeds.country_codes).to.eql(breed_country_codes);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC4 - Image URL format is correct\", function () {\r",
+									"    const imageUrl = firstbreeds.image.url;\r",
+									"    pm.expect(imageUrl).to.include(\"https://\");\r",
+									"    pm.expect(imageUrl).to.include(\".jpg\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC5 - Verify Content-Type and Connection Headers\", function () {\r",
+									"\r",
+									"    // 1. Verify Content-Type (must be JSON)\t\r",
+									"    pm.response.to.have.header(\"Content-Type\");\t\t\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\t\r",
+									"\r",
+									"    // 2. Verify Connection Header\r",
+									"    pm.response.to.have.header(\"Connection\");\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\", \r",
+									"        \"Connection should be set to 'keep-alive'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC6 - Verify Critical Security Headers\", function () {\r",
+									"    // 1. X-Frame-Options (Against Clickjacking)\r",
+									"    pm.response.to.have.header(\"x-frame-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-frame-options\")).to.eql(\"SAMEORIGIN\", \r",
+									"        \"X-Frame-Options should be SAMEORIGIN or DENY.\"\r",
+									"    );\r",
+									"\r",
+									"    // 2. X-Content-Type-Options (Against MIME-type Sniffing)\r",
+									"    pm.response.to.have.header(\"x-content-type-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-content-type-options\")).to.eql(\"nosniff\", \r",
+									"        \"X-Content-Type-Options should be 'nosniff'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC7 - Response time < 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"//Get Breedid\r",
+									"if (firstbreeds.id) {\r",
+									"    const firstbreeds_id = firstbreeds.id;\r",
+									"    pm.collectionVariables.set(\"firstbreeds_id\",firstbreeds.id);\r",
+									"    console.log(\"firstbreeds_id is set to \" + firstbreeds_id);\r",
+									"}\r",
+									"\r",
+									"// Redirect to Post-Upload-Image\r",
+									"pm.execution.setNextRequest(\"Post-Upload-Image\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Set first breeds variable name, origin, country_code here ; \r",
+									"pm.collectionVariables.set(\"breeds_name\",\"Abyssinian\");\r",
+									"pm.collectionVariables.set(\"breeds_origin\",\"Egypt\");\r",
+									"pm.collectionVariables.set(\"breeds_country_codes\",\"EG\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/breeds",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"breeds"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post-Upload-Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"TC1 - Call API sucess to upload image, status code 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Get response of upload image\r",
+									"const actual_upload = pm.response.json();\r",
+									"\r",
+									"// Check upload image if upload failed, stop execution and throw error.\r",
+									"if (!actual_upload || !actual_upload.id) {\r",
+									"    pm.execution.setNextRequest(null); \r",
+									"    throw new Error(\"Critical: Upload failed, missing ID.\");\r",
+									"}\r",
+									"\r",
+									"// Make Schema of upload image.\r",
+									"const uploadschemaObject = {\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"url\": {\r",
+									"            \"type\": \"string\",\r",
+									"            \"format\": \"url\",\r",
+									"            \"pattern\": \"^https://.*\\\\.(jpe?g|png|gif|webp|bmp|tif|svg|ico)$\"\r",
+									"        },\r",
+									"        \"sub_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"width\": {\r",
+									"            \"type\": \"integer\",\r",
+									"            \"minimum\": 300\r",
+									"        },\r",
+									"        \"height\": {\r",
+									"            \"type\": \"integer\",\r",
+									"            \"minimum\": 300\r",
+									"        },\r",
+									"        \"original_filename\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"breed_ids\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"pending\": {\r",
+									"            \"type\": \"integer\",\r",
+									"            \"enum\": [0, 1]\r",
+									"        },\r",
+									"        \"approved\": {\r",
+									"            \"type\": \"integer\",\r",
+									"            \"enum\": [0, 1]\r",
+									"        }\r",
+									"    },\r",
+									"    \"required\": [\r",
+									"        \"id\",\r",
+									"        \"url\",\r",
+									"        \"sub_id\",\r",
+									"        \"width\",\r",
+									"        \"height\",\r",
+									"        \"original_filename\",\r",
+									"        \"breed_ids\",\r",
+									"        \"pending\",\r",
+									"        \"approved\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false\r",
+									"}\r",
+									"\r",
+									"pm.test(\"TC2 - Schema Validation - Response contains all expect fields with correct format.\", function () { \r",
+									"\r",
+									"    // 1. Initialize Ajv and compile the Schema\r",
+									"    const Ajv = require('ajv');\r",
+									"    const ajv = new Ajv({ allErrors: true, verbose: true }); \r",
+									"    const validate = ajv.compile(uploadschemaObject); \r",
+									"\r",
+									"    // 2. Execute validation\r",
+									"    const isValid = validate(actual_upload);\r",
+									"    if (!isValid) {\r",
+									"        // Use throw new Error to clearly display detailed errors from Ajv\r",
+									"        throw new Error(\r",
+									"            \"Schema Validation FAILED! Details: \\n\" +\r",
+									"            JSON.stringify(validate.errors, null, 2)\r",
+									"        );\r",
+									"    }\r",
+									"        pm.expect(isValid).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC3 - Verify specific image details (sub_id and breed_ids)\", function () {\r",
+									"\r",
+									"    const expect_sub_id = pm.collectionVariables.get(\"sub_id\");\r",
+									"    const expect_breed_ids = pm.collectionVariables.get(\"firstbreeds_id\");\r",
+									"\r",
+									"    // Validate sub_id, breed_ids\r",
+									"    pm.expect(actual_upload.sub_id).to.eql(expect_sub_id,\r",
+									"    \"Error: Actual sub_id does not match the expect sub_id.\")\r",
+									"\r",
+									"     pm.expect(actual_upload.breed_ids).to.eql(expect_breed_ids,\r",
+									"    \"Error: Actual breed_ids does not match the expect firstbreeds_id.\")\r",
+									"   \r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC4 - Verify Content-Type and Connection Headers\", function () {\r",
+									"\r",
+									"    // 1. Verify Content-Type (must be JSON)\t\r",
+									"    pm.response.to.have.header(\"Content-Type\");\t\t\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\t\r",
+									"\r",
+									"    // 2. Verify Connection Header\r",
+									"    pm.response.to.have.header(\"Connection\");\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\", \r",
+									"        \"Connection should be set to 'keep-alive'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC5 - Verify Critical Security Headers\", function () {\r",
+									"    // 1. X-Frame-Options (Against Clickjacking)\r",
+									"    pm.response.to.have.header(\"x-frame-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-frame-options\")).to.eql(\"SAMEORIGIN\", \r",
+									"        \"X-Frame-Options should be SAMEORIGIN or DENY.\"\r",
+									"    );\r",
+									"\r",
+									"    // 2. X-Content-Type-Options (Against MIME-type Sniffing)\r",
+									"    pm.response.to.have.header(\"x-content-type-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-content-type-options\")).to.eql(\"nosniff\", \r",
+									"        \"X-Content-Type-Options should be 'nosniff'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC6 - Response time < 5s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC7 - Response Size Validation (Below 2 KB)\", function () {\r",
+									"    \r",
+									"    // Set the maximum allowed limit in Kilobytes\r",
+									"    const MAX_SIZE_KB = 2; \r",
+									"    \r",
+									"    // Convert the limit from KB to Bytes (1 KB = 1024 Bytes)\r",
+									"    const MAX_SIZE_BYTES = MAX_SIZE_KB * 1024;\r",
+									"    \r",
+									"    // Get the actual response size (in Bytes)\r",
+									"    const actualSize = pm.response.responseSize;\r",
+									"    \r",
+									"    // Assertion: The actual size must be less than the maximum allowed limit\r",
+									"    pm.expect(actualSize).to.be.below(MAX_SIZE_BYTES, \r",
+									"        `Response size is too large. Actual size: ${(actualSize / 1024).toFixed(2)} KB.`\r",
+									"    );\r",
+									"});\r",
+									"\r",
+									"\r",
+									"// Save UploadImage_id (primary key)to find in Get-My-Image\r",
+									"const UploadImage_id = actual_upload.id;\r",
+									"pm.collectionVariables.set(\"UploadImage_id\", String(UploadImage_id));\r",
+									"\r",
+									"// Do loop to save all key-value in Upload Image to get compare with all key-value of image returns in Get-My-Image.\r",
+									"for (const key in actual_upload) {\r",
+									"    if (actual_upload.hasOwnProperty(key)) {\r",
+									"        let value = actual_upload[key];\r",
+									"        \r",
+									"        // Covert all value to string.\r",
+									"        if (value !== null && value !== undefined) {\r",
+									"            value = String(value);\r",
+									"        }\r",
+									"        \r",
+									"        // Set all variable name with prefix \"expected_\" Example: {expected_breed_ids:value} \r",
+									"\r",
+									"        const variableName = `expected_${key}`;\r",
+									"        pm.collectionVariables.set(variableName, value);\r",
+									"        console.log(variableName);\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// Redirect to Get-My-Image\r",
+									"pm.execution.setNextRequest(\"Get-My-Image\"); "
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"sub_id\",\"VietNam\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "breed_ids",
+									"value": "{{firstbreeds_id}}",
+									"type": "text"
+								},
+								{
+									"key": "sub_id",
+									"value": "{{sub_id}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1f0ae454-638f-4640-ba7d-a6caa4745d31"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/images/upload",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-My-Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Get response of get my image\r",
+									"const actual_MyImage = pm.response.json();\r",
+									"\r",
+									"let myImageCondition = false;\r",
+									"\r",
+									"pm.test(\"TC1 - Call API sucess to Get My Image, status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"// Make Schema of my image.\r",
+									"const MyImageObject =\r",
+									"{\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"type\": \"array\",\r",
+									"    \"items\": {\r",
+									"        \"type\": \"object\",\r",
+									"        \"properties\": {\r",
+									"            \"id\": { \"type\": \"string\" },\r",
+									"            \"url\": { \r",
+									"                \"type\": \"string\",\r",
+									"                \"format\": \"uri\",\r",
+									"                \"pattern\": \"^https://.*\\\\.(jpe?g|png|gif|webp|bmp|tif|svg|ico)$\"\r",
+									"            },\r",
+									"            \"width\": { \"type\": \"integer\", \"minimum\": 1 },\r",
+									"            \"height\": { \"type\": \"integer\", \"minimum\": 1 },\r",
+									"            \"sub_id\": { \"type\": \"string\" },\r",
+									"            \"created_at\": { \r",
+									"                \"type\": \"string\",\r",
+									"                \"format\": \"date-time\"\r",
+									"            },\r",
+									"            \"original_filename\": { \"type\": \"string\" },\r",
+									"            \"breed_ids\": { \"type\": \"string\" },\r",
+									"            \"breeds\": {\r",
+									"                \"type\": \"array\",\r",
+									"                \"items\": {\r",
+									"                    \"type\": \"object\",\r",
+									"                    \"properties\": {\r",
+									"                        \"weight\": {\r",
+									"                            \"type\": \"object\",\r",
+									"                            \"properties\": {\r",
+									"                                \"imperial\": { \"type\": \"string\" },\r",
+									"                                \"metric\": { \"type\": \"string\" }\r",
+									"                            },\r",
+									"                            \"required\": [\"imperial\", \"metric\"],\r",
+									"                            \"additionalProperties\": false\r",
+									"                        },\r",
+									"                        \"id\": { \"type\": \"string\" },\r",
+									"                        \"name\": { \"type\": \"string\" },\r",
+									"                        \"cfa_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"                        \"vetstreet_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"                        \"vcahospitals_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"                        \"temperament\": { \"type\": \"string\" },\r",
+									"                        \"origin\": { \"type\": \"string\" },\r",
+									"                        \"country_codes\": { \"type\": \"string\" },\r",
+									"                        \"country_code\": { \"type\": \"string\" },\r",
+									"                        \"description\": { \"type\": \"string\" },\r",
+									"                        \"life_span\": { \"type\": \"string\" },\r",
+									"                        \"alt_names\": { \"type\": \"string\" },\r",
+									"                        // Các thuộc tính số học\r",
+									"                        \"indoor\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"lap\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"adaptability\": { \"type\": \"integer\" },\r",
+									"                        \"affection_level\": { \"type\": \"integer\" },\r",
+									"                        \"child_friendly\": { \"type\": \"integer\" },\r",
+									"                        \"dog_friendly\": { \"type\": \"integer\" },\r",
+									"                        \"energy_level\": { \"type\": \"integer\" },\r",
+									"                        \"grooming\": { \"type\": \"integer\" },\r",
+									"                        \"health_issues\": { \"type\": \"integer\" },\r",
+									"                        \"intelligence\": { \"type\": \"integer\" },\r",
+									"                        \"shedding_level\": { \"type\": \"integer\" },\r",
+									"                        \"social_needs\": { \"type\": \"integer\" },\r",
+									"                        \"stranger_friendly\": { \"type\": \"integer\" },\r",
+									"                        \"vocalisation\": { \"type\": \"integer\" },\r",
+									"                        \"experimental\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"hairless\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"natural\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"rare\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"rex\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"suppressed_tail\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"short_legs\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        \"hypoallergenic\": { \"type\": \"integer\", \"enum\": [0, 1] },\r",
+									"                        // URL cuối cùng\r",
+									"                        \"wikipedia_url\": { \"type\": \"string\", \"format\": \"uri\" },\r",
+									"                        \"reference_image_id\": { \"type\": \"string\" }\r",
+									"                    },\r",
+									"                    \"required\": [\r",
+									"                        \"weight\", \"id\", \"name\", \"cfa_url\", \"vetstreet_url\", \"vcahospitals_url\",\r",
+									"                        \"temperament\", \"origin\", \"country_codes\", \"country_code\", \"description\",\r",
+									"                        \"life_span\", \"adaptability\", \"affection_level\", \"intelligence\", \"wikipedia_url\"\r",
+									"                    ],\r",
+									"                    \"additionalProperties\": false\r",
+									"                }\r",
+									"            }\r",
+									"        },\r",
+									"        \"required\": [\r",
+									"            \"id\", \"url\", \"width\", \"height\", \"sub_id\", \"created_at\", \"original_filename\", \"breed_ids\", \"breeds\"\r",
+									"        ],\r",
+									"        \"additionalProperties\": false\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"TC2 - Schema Validation - Response contains all expect fields with correct format.\", function () { \r",
+									"\r",
+									"    // 1. Initialize Ajv and compile the Schema\r",
+									"    const Ajv = require('ajv');\r",
+									"    const ajv = new Ajv({ allErrors: true, verbose: true }); \r",
+									"    const validate = ajv.compile(MyImageObject); \r",
+									"\r",
+									"    // 2. Execute validation\r",
+									"    const isValid = validate(actual_MyImage);\r",
+									"    if (!isValid) {\r",
+									"        // Use throw new Error to clearly display detailed errors from Ajv\r",
+									"        throw new Error(\r",
+									"            \"Schema Validation FAILED! Details: \\n\" +\r",
+									"            JSON.stringify(validate.errors, null, 2)\r",
+									"        );\r",
+									"    }\r",
+									"        pm.expect(isValid).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC3 - Data Validation: Uploaded image is found in My image\", function () {\r",
+									"    \r",
+									"    const my_images = pm.response.json();\r",
+									"    \r",
+									"    // Get expected image id (primary key) from Upload Image\r",
+									"    const expectedId = pm.collectionVariables.get(\"UploadImage_id\");\r",
+									"    \r",
+									"    // 1. Search: Find object with the expected ID in the array\r",
+									"    const actual_my_images = my_images.find(image => String(image.id) === expectedId);\r",
+									"\r",
+									"    // Kiểm tra và xử lý lỗi dừng ngay lập tức\r",
+									"    if (!actual_my_images) {\r",
+									"        // 1. Ghi nhật ký lỗi CRITICAL\r",
+									"        console.error(`CRITICAL: Image ID (${expectedId}) not found in the GET My Image list. Stopping execution.`);\r",
+									"        \r",
+									"        // 2. Lệnh DỪNG CHUỖI TEST: \r",
+									"        myImageCondition = true;\r",
+									"        \r",
+									"        // 3. Ném (throw) một lỗi để làm test thất bại rõ ràng trong Runner Console\r",
+									"        throw new Error(`CRITICAL: Image ID (${expectedId}) not found in the GET My Image list.`);\r",
+									"    }\r",
+									"\r",
+									"    // 2.Define Array: List field wil compare actual data with expected data.\r",
+									"    const fieldsToCompare = [\r",
+									"        \"id\", \"url\", \"sub_id\", \"width\", \"height\", \"original_filename\", \"breed_ids\"\r",
+									"    ];\r",
+									"\r",
+									"    // 3. Tally: Compare Key-Value pairs from actual data with expected data.\r",
+									"    fieldsToCompare.forEach(field => {\r",
+									"        \r",
+									"        // Get expect fields\r",
+									"        const expectedValue = pm.collectionVariables.get(`expected_${field}`);\r",
+									"        \r",
+									"        // Get actual fields\r",
+									"        const actualValue = actual_my_images[field];\r",
+									"        \r",
+									"        // Convert actualValue to string\r",
+									"        const actualValueString = (actualValue !== null && actualValue !== undefined) ? String(actualValue) : String(null);\r",
+									"        \r",
+									"        // Compare actualValue with expectedValue. If not equal, throw error.\r",
+									"        pm.expect(actualValueString).to.eql(expectedValue, \r",
+									"            `DATA MISMATCH on field '${field}' for ID ${expectedId}. Expected: ${expectedValue}, Actual: ${actualValueString}`\r",
+									"        );\r",
+									"\r",
+									"    });\r",
+									"\r",
+									"    console.log(`All data fields for ID ${expectedId} are consistent.`);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC4 - Verify Content-Type and Connection Headers\", function () {\r",
+									"\r",
+									"    // 1. Verify Content-Type (must be JSON)\t\r",
+									"    pm.response.to.have.header(\"Content-Type\");\t\t\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\t\r",
+									"\r",
+									"    // 2. Verify Connection Header\r",
+									"    pm.response.to.have.header(\"Connection\");\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\", \r",
+									"        \"Connection should be set to 'keep-alive'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC5 - Verify Critical Security Headers\", function () {\r",
+									"    // 1. X-Frame-Options (Against Clickjacking)\r",
+									"    pm.response.to.have.header(\"x-frame-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-frame-options\")).to.eql(\"SAMEORIGIN\", \r",
+									"        \"X-Frame-Options should be SAMEORIGIN or DENY.\"\r",
+									"    );\r",
+									"\r",
+									"    // 2. X-Content-Type-Options (Against MIME-type Sniffing)\r",
+									"    pm.response.to.have.header(\"x-content-type-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-content-type-options\")).to.eql(\"nosniff\", \r",
+									"        \"X-Content-Type-Options should be 'nosniff'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC6 - Response time < 1s\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC7 - Response Size Validation (Below 2 KB)\", function () {\r",
+									"    \r",
+									"    // Set the maximum allowed limit in Kilobytes\r",
+									"    const MAX_SIZE_KB = 2; \r",
+									"    \r",
+									"    // Convert the limit from KB to Bytes (1 KB = 1024 Bytes)\r",
+									"    const MAX_SIZE_BYTES = MAX_SIZE_KB * 1024;\r",
+									"    \r",
+									"    // Get the actual response size (in Bytes)\r",
+									"    const actualSize = pm.response.responseSize;\r",
+									"    \r",
+									"    // Assertion: The actual size must be less than the maximum allowed limit\r",
+									"    pm.expect(actualSize).to.be.below(MAX_SIZE_BYTES, \r",
+									"        `Response size is too large. Actual size: ${(actualSize / 1024).toFixed(2)} KB.`\r",
+									"    );\r",
+									"});\r",
+									"\r",
+									"if (myImageCondition) {\r",
+									"    // (ID non-existent), STOP.\r",
+									"    pm.execution.setNextRequest(null); \r",
+									"    console.warn(\"Execution stopped due to CRITICAL error in TC3.\");\r",
+									"} else {\r",
+									"    // Next Request \r",
+									"    pm.execution.setNextRequest(\"Get-Image-Detail\"); \r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/images/?limit=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Image-Detail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// SET FLAG\r",
+									"let imageDetail_condition = false;\r",
+									"\r",
+									"pm.test(\"TC1 - Call API sucess to Get Image detail, status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Get response of get my image\r",
+									"const actual_imageDetail = pm.response.json();\r",
+									"\r",
+									"// Check get detail image if get failed, stop execution and throw error.\r",
+									"if (!actual_imageDetail[0] || !actual_imageDetail[0].image_id) {\r",
+									"    pm.execution.setNextRequest(null); \r",
+									"    throw new Error(\"Critical: Upload failed, missing ID.\");\r",
+									"}\r",
+									"\r",
+									"// Make Schema of my image.\r",
+									"const imageDetailObject =\r",
+									"{\r",
+									"    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"    \"type\": \"array\",\r",
+									"    \"items\": {\r",
+									"        \"type\": \"object\",\r",
+									"        \"properties\": {\r",
+									"            \"vendor\": { \"type\": \"string\" },\r",
+									"            \"image_id\": { \"type\": \"string\" },\r",
+									"            \"created_at\": { \"type\": \"string\" }, \r",
+									"            \"moderation_labels\": { \"type\": \"array\" }, \r",
+									"            \"labels\": {\r",
+									"                \"type\": \"array\",\r",
+									"                \"items\": {\r",
+									"                    \"type\": \"object\",\r",
+									"                    \"properties\": {\r",
+									"                        \"Name\": { \"type\": \"string\" },\r",
+									"                        \"Confidence\": { \"type\": \"number\" } \r",
+									"                    },\r",
+									"                    \"required\": [\"Name\", \"Confidence\"],\r",
+									"                    \"additionalProperties\": true \r",
+									"                }\r",
+									"            }\r",
+									"        },\r",
+									"        \"required\": [\r",
+									"            \"labels\",\r",
+									"            \"vendor\",\r",
+									"            \"image_id\",\r",
+									"            \"created_at\"\r",
+									"        ],\r",
+									"        \r",
+									"        \"additionalProperties\": true \r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"TC2 - Schema Validation - Response contains all expect fields with correct format.\", function () { \r",
+									"\r",
+									"    // 1. Initialize Ajv and compile the Schema\r",
+									"    const Ajv = require('ajv');\r",
+									"    const ajv = new Ajv({ allErrors: true, verbose: true }); \r",
+									"    const validate = ajv.compile(imageDetailObject); \r",
+									"\r",
+									"    // 2. Execute validation\r",
+									"    const isValid = validate(actual_imageDetail);\r",
+									"    if (!isValid) {\r",
+									"        // Use throw new Error to clearly display detailed errors from Ajv\r",
+									"        throw new Error(\r",
+									"            \"Schema Validation FAILED! Details: \\n\" +\r",
+									"            JSON.stringify(validate.errors, null, 2)\r",
+									"        );\r",
+									"    }\r",
+									"        pm.expect(isValid).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC3 - Data Validation: Get image detail data is accurate with My image\", function () {\r",
+									"\r",
+									"    // Get actual data from response\r",
+									"    const actual_vendor = actual_imageDetail[0].vendor;\r",
+									"    const actual_image_id = actual_imageDetail[0].image_id;\r",
+									"\r",
+									"    //Compare with expected data\r",
+									"    pm.expect(actual_vendor).to.equal(pm.collectionVariables.get(\"expect_vendor\"));\r",
+									"    pm.expect(actual_image_id).to.equal(pm.collectionVariables.get(\"UploadImage_id\"));\r",
+									"    \r",
+									"    // Set flag = true\r",
+									"    pm.collectionVariables.set(\"imageDetail_condition\",true);\r",
+									"\r",
+									"  \r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC4 - Verify Content-Type and Connection Headers\", function () {\r",
+									"\r",
+									"    // 1. Verify Content-Type (must be JSON)\t\r",
+									"    pm.response.to.have.header(\"Content-Type\");\t\t\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\t\r",
+									"\r",
+									"    // 2. Verify Connection Header\r",
+									"    pm.response.to.have.header(\"Connection\");\r",
+									"    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\", \r",
+									"        \"Connection should be set to 'keep-alive'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC5 - Verify Critical Security Headers\", function () {\r",
+									"    // 1. X-Frame-Options (Against Clickjacking)\r",
+									"    pm.response.to.have.header(\"x-frame-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-frame-options\")).to.eql(\"SAMEORIGIN\", \r",
+									"        \"X-Frame-Options should be SAMEORIGIN or DENY.\"\r",
+									"    );\r",
+									"\r",
+									"    // 2. X-Content-Type-Options (Against MIME-type Sniffing)\r",
+									"    pm.response.to.have.header(\"x-content-type-options\");\r",
+									"    pm.expect(pm.response.headers.get(\"x-content-type-options\")).to.eql(\"nosniff\", \r",
+									"        \"X-Content-Type-Options should be 'nosniff'.\"\r",
+									"    );\r",
+									"\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC6 - Response time < 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"TC7 - Response Size Validation (Below 2 KB)\", function () {\r",
+									"    \r",
+									"    // Set the maximum allowed limit in Kilobytes\r",
+									"    const MAX_SIZE_KB = 2; \r",
+									"    \r",
+									"    // Convert the limit from KB to Bytes (1 KB = 1024 Bytes)\r",
+									"    const MAX_SIZE_BYTES = MAX_SIZE_KB * 1024;\r",
+									"    \r",
+									"    // Get the actual response size (in Bytes)\r",
+									"    const actualSize = pm.response.responseSize;\r",
+									"    \r",
+									"    // Assertion: The actual size must be less than the maximum allowed limit\r",
+									"    pm.expect(actualSize).to.be.below(MAX_SIZE_BYTES, \r",
+									"        `Response size is too large. Actual size: ${(actualSize / 1024).toFixed(2)} KB.`\r",
+									"    );\r",
+									"});\r",
+									"\r",
+									"if (imageDetail_condition) {\r",
+									"    // (ID non-existent), STOP.\r",
+									"    pm.execution.setNextRequest(null); \r",
+									"    console.warn(\"Execution stopped due to CRITICAL error in TC3.\");\r",
+									"} else {\r",
+									"    // Next Request \r",
+									"    pm.execution.setNextRequest(\"Delete-Image\"); \r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"expect_vendor\",\"AWS Rekognition\")"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/images/{{UploadImage_id}}/analysis",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"{{UploadImage_id}}",
+								"analysis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Get currently retryCount\r",
+									"let retryCount = pm.collectionVariables.get(\"delete_retry_count\");\r",
+									"retryCount = parseInt(retryCount) || 0; // Must be number\r",
+									"\r",
+									"// Set status flag\r",
+									"let isDeleteSuccessful = false;\r",
+									"\r",
+									"pm.test(\"TC1 - Call API sucess to delete Image, status code 204\", function () {\r",
+									"    try {\r",
+									"        pm.response.to.have.status(204);\r",
+									"        isDeleteSuccessful = true; \r",
+									"    } catch (e) {\r",
+									"\r",
+									"        isDeleteSuccessful = false; \r",
+									"        console.error(\"DELETE FAILED: Unexpected Status Code or Body.\");\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"// 2. Loop logic and set next request based on response.\r",
+									"if (isDeleteSuccessful) {\r",
+									"    // (Image non-existent ?) TRUE go to Get-My-Image to check image not found.\r",
+									"    pm.collectionVariables.set(\"delete_retry_count\", 0); \r",
+									"    console.log(\"Image deleted successfully. Proceeding to verification.\");\r",
+									"    pm.execution.setNextRequest(\"Get-My-Image\"); \r",
+									"\r",
+									"} else {\r",
+									"    //False\r",
+									"    retryCount++;\r",
+									"    pm.collectionVariables.set(\"delete_retry_count\", retryCount);\r",
+									"    \r",
+									"    // Check loop if > 3 stop test and log error.\r",
+									"    if (retryCount < 3) {\r",
+									"        \r",
+									"        console.warn(`DELETE FAILED. Retrying... Attempt ${retryCount} of 3.`);\r",
+									"        pm.execution.setNextRequest(pm.info.requestName); \r",
+									"\r",
+									"    } else {\r",
+									"\r",
+									"        console.error(`CRITICAL FAILURE: DELETE FAILED 3 times. Stopping test.`);\r",
+									"        pm.execution.setNextRequest(null); \r",
+									"        throw new Error(`DELETE Image failed repeatedly (${retryCount} times).`);\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/images/{{UploadImage_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"{{UploadImage_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"pm.collectionVariables.set(\"base_url\",\"https://api.thecatapi.com/v1\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.thecatapi.com/v1"
+		},
+		{
+			"key": "api_key",
+			"value": "live_S9hNSPmvxjsBPCT4bQuddfNwoZKG97zP5ecW1HzgyYyEZnCMZijBqL3q9Nq3B5xv"
+		},
+		{
+			"key": "firstbreeds_id",
+			"value": "abys"
+		},
+		{
+			"key": "n",
+			"value": "0"
+		},
+		{
+			"key": "breeds_name",
+			"value": "Abyssinian"
+		},
+		{
+			"key": "breeds_origin",
+			"value": "Egypt"
+		},
+		{
+			"key": "breeds_country_codes",
+			"value": "EG"
+		},
+		{
+			"key": "breedSchema_String",
+			"value": "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"weight\":{\"type\":\"object\",\"properties\":{\"imperial\":{\"type\":\"string\"},\"metric\":{\"type\":\"string\"}},\"required\":[\"imperial\",\"metric\"]},\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"cfa_url\":{\"type\":\"string\"},\"vetstreet_url\":{\"type\":\"string\"},\"vcahospitals_url\":{\"type\":\"string\"},\"temperament\":{\"type\":\"string\"},\"origin\":{\"type\":\"string\"},\"country_codes\":{\"type\":\"string\"},\"country_code\":{\"type\":\"string\"},\"description\":{\"type\":\"string\"},\"life_span\":{\"type\":\"string\"},\"indoor\":{\"type\":\"integer\"},\"lap\":{\"type\":\"integer\"},\"alt_names\":{\"type\":\"string\"},\"adaptability\":{\"type\":\"integer\"},\"affection_level\":{\"type\":\"integer\"},\"child_friendly\":{\"type\":\"integer\"},\"dog_friendly\":{\"type\":\"integer\"},\"energy_level\":{\"type\":\"integer\"},\"grooming\":{\"type\":\"integer\"},\"health_issues\":{\"type\":\"integer\"},\"intelligence\":{\"type\":\"integer\"},\"shedding_level\":{\"type\":\"integer\"},\"social_needs\":{\"type\":\"integer\"},\"stranger_friendly\":{\"type\":\"integer\"},\"vocalisation\":{\"type\":\"integer\"},\"experimental\":{\"type\":\"integer\"},\"hairless\":{\"type\":\"integer\"},\"natural\":{\"type\":\"integer\"},\"rare\":{\"type\":\"integer\"},\"rex\":{\"type\":\"integer\"},\"suppressed_tail\":{\"type\":\"integer\"},\"short_legs\":{\"type\":\"integer\"},\"wikipedia_url\":{\"type\":\"string\"},\"hypoallergenic\":{\"type\":\"integer\"},\"reference_image_id\":{\"type\":\"string\"},\"image\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"width\":{\"type\":\"integer\"},\"height\":{\"type\":\"integer\"},\"url\":{\"type\":\"string\"}},\"required\":[\"id\",\"width\",\"height\",\"url\"]}},\"required\":[\"weight\",\"id\",\"name\",\"cfa_url\",\"vetstreet_url\",\"vcahospitals_url\",\"temperament\",\"origin\",\"country_codes\",\"country_code\",\"description\",\"life_span\",\"indoor\",\"lap\",\"alt_names\",\"adaptability\",\"affection_level\",\"child_friendly\",\"dog_friendly\",\"energy_level\",\"grooming\",\"health_issues\",\"intelligence\",\"shedding_level\",\"social_needs\",\"stranger_friendly\",\"vocalisation\",\"experimental\",\"hairless\",\"natural\",\"rare\",\"rex\",\"suppressed_tail\",\"short_legs\",\"wikipedia_url\",\"hypoallergenic\",\"reference_image_id\",\"image\"]}"
+		},
+		{
+			"key": "sub_id",
+			"value": "VietNam"
+		},
+		{
+			"key": "breed_ids",
+			"value": "abys"
+		},
+		{
+			"key": "UploadImage_id",
+			"value": "C4NFfhkCC"
+		},
+		{
+			"key": "expected_id",
+			"value": "C4NFfhkCC"
+		},
+		{
+			"key": "expected_url",
+			"value": "https://cdn2.thecatapi.com/images/C4NFfhkCC.jpg"
+		},
+		{
+			"key": "expected_sub_id",
+			"value": "VietNam"
+		},
+		{
+			"key": "expected_width",
+			"value": "800"
+		},
+		{
+			"key": "expected_height",
+			"value": "800"
+		},
+		{
+			"key": "expected_original_filename",
+			"value": "Cat_001.jpg"
+		},
+		{
+			"key": "expected_breed_ids",
+			"value": "abys"
+		},
+		{
+			"key": "expected_pending",
+			"value": "0"
+		},
+		{
+			"key": "expected_approved",
+			"value": "1"
+		},
+		{
+			"key": "expect_vendor",
+			"value": "AWS Rekognition"
+		},
+		{
+			"key": "delete_retry_count",
+			"value": 0
+		},
+		{
+			"value": ""
+		},
+		{
+			"key": "imageDetail_condition",
+			"value": ""
+		}
+	]
+}

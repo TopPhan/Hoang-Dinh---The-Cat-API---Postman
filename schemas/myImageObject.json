@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "url": { 
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://.*\\.(jpe?g|png|gif|webp|bmp|tif|svg|ico)$"
+            },
+            "width": { "type": "integer", "minimum": 1 },
+            "height": { "type": "integer", "minimum": 1 },
+            "sub_id": { "type": "string" },
+            "created_at": { 
+                "type": "string",
+                "format": "date-time"
+            },
+            "original_filename": { "type": "string" },
+            "breed_ids": { "type": "string" },
+            "breeds": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "weight": {
+                            "type": "object",
+                            "properties": {
+                                "imperial": { "type": "string" },
+                                "metric": { "type": "string" }
+                            },
+                            "required": ["imperial", "metric"],
+                            "additionalProperties": false
+                        },
+                        "id": { "type": "string" },
+                        "name": { "type": "string" },
+                        "cfa_url": { "type": "string", "format": "uri" },
+                        "vetstreet_url": { "type": "string", "format": "uri" },
+                        "vcahospitals_url": { "type": "string", "format": "uri" },
+                        "temperament": { "type": "string" },
+                        "origin": { "type": "string" },
+                        "country_codes": { "type": "string" },
+                        "country_code": { "type": "string" },
+                        "description": { "type": "string" },
+                        "life_span": { "type": "string" },
+                        "alt_names": { "type": "string" },
+                        // Các thuộc tính số học
+                        "indoor": { "type": "integer", "enum": [0, 1] },
+                        "lap": { "type": "integer", "enum": [0, 1] },
+                        "adaptability": { "type": "integer" },
+                        "affection_level": { "type": "integer" },
+                        "child_friendly": { "type": "integer" },
+                        "dog_friendly": { "type": "integer" },
+                        "energy_level": { "type": "integer" },
+                        "grooming": { "type": "integer" },
+                        "health_issues": { "type": "integer" },
+                        "intelligence": { "type": "integer" },
+                        "shedding_level": { "type": "integer" },
+                        "social_needs": { "type": "integer" },
+                        "stranger_friendly": { "type": "integer" },
+                        "vocalisation": { "type": "integer" },
+                        "experimental": { "type": "integer", "enum": [0, 1] },
+                        "hairless": { "type": "integer", "enum": [0, 1] },
+                        "natural": { "type": "integer", "enum": [0, 1] },
+                        "rare": { "type": "integer", "enum": [0, 1] },
+                        "rex": { "type": "integer", "enum": [0, 1] },
+                        "suppressed_tail": { "type": "integer", "enum": [0, 1] },
+                        "short_legs": { "type": "integer", "enum": [0, 1] },
+                        "hypoallergenic": { "type": "integer", "enum": [0, 1] },
+                        // URL cuối cùng
+                        "wikipedia_url": { "type": "string", "format": "uri" },
+                        "reference_image_id": { "type": "string" }
+                    },
+                    "required": [
+                        "weight", "id", "name", "cfa_url", "vetstreet_url", "vcahospitals_url",
+                        "temperament", "origin", "country_codes", "country_code", "description",
+                        "life_span", "adaptability", "affection_level", "intelligence", "wikipedia_url"
+                    ],
+                    "additionalProperties": false
+                }
+            }
+        },
+        "required": [
+            "id", "url", "width", "height", "sub_id", "created_at", "original_filename", "breed_ids", "breeds"
+        ],
+        "additionalProperties": false
+    }
+}

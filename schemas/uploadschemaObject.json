@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string",
+            "format": "url",
+            "pattern": "^https://.*\\.(jpe?g|png|gif|webp|bmp|tif|svg|ico)$"
+        },
+        "sub_id": {
+            "type": "string"
+        },
+        "width": {
+            "type": "integer",
+            "minimum": 300
+        },
+        "height": {
+            "type": "integer",
+            "minimum": 300
+        },
+        "original_filename": {
+            "type": "string"
+        },
+        "breed_ids": {
+            "type": "string"
+        },
+        "pending": {
+            "type": "integer",
+            "enum": [0, 1]
+        },
+        "approved": {
+            "type": "integer",
+            "enum": [0, 1]
+        }
+    },
+    "required": [
+        "id",
+        "url",
+        "sub_id",
+        "width",
+        "height",
+        "original_filename",
+        "breed_ids",
+        "pending",
+        "approved"
+    ],
+    "additionalProperties": false
+}
