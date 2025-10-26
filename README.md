@@ -32,6 +32,7 @@ Project Structure
 
 Hoàng Đỉnh - The Cat API.postman_collection.json: 	Main Postman collection with test scripts
 MY_SERVICE_API_KEY=DEV.postman_environment.json:	Environment file with API key
+
 Test Flow.xlsx:										Visual flowchart of the test logic
 schemas/											JSON schema definitions
 screenshots/										Screenshots of test results,variables,request...etc.
