@@ -1,138 +1,147 @@
 🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
-📅 Execution Period: October 19, 2025 – October 24, 2025
+📅 Thời gian thực hiện: 19/10/2025 - 26/10/2025
 👤 Tester: Hoàng Đỉnh
 
 Overview
 
-Hello! This project showcases how I use Postman scripting to take API
-focusing on CRUD operations for image and breed data, ensuring stability and speed in complex workflows.
+Xin chào! Đây là dự án thể hiện cách tôi thực hiện kiểm thử API, tôi tập trung vào các thao tác thêm, sửa, xóa và kiểm tra dữ liệu hình ảnh về mèo. Mục tiêu là đảm bảo hệ thống hoạt động ổn định và nhanh chóng ngay cả khi xử lý nhiều flow phức tạp.
 
 
 Quick Setup & Demo
 
-1. Download & Import: Grab both the Collection (Hoàng Đỉnh - The Cat API.postman_collection.json) and the Environment (MY_SERVICE_API_KEY=DEV.postman_environment.json).
+1. Tải về và nhập vào cả 2 file là: Collection (Hoàng Đỉnh - The Cat API.postman_collection.json) và the Environment (MY_SERVICE_API_KEY=DEV.postman_environment.json).
 
-2. Select & Go: Ensure the MY_SERVICE_API_KEY=DEV Environment is selected.
+2. Chọn đúng môi trường MY_SERVICE_API_KEY=DEV Environment để sử dụng .
 
-3. Run Collection: Use the Collection Runner to execute the main Image Validation (CRUD) folder. The entire process will run and validate itself automatically!
+3. Chạy Collection Image Validation (CRUD) quá trình sẽ tự động thực hiện và kiểm tra kết quả.
 
 
 Project Structure
 
-Hoàng Đỉnh - The Cat API.postman_collection.json: 	Main Postman collection with test scripts
-MY_SERVICE_API_KEY=DEV.postman_environment.json:	Environment file with API key
-Test Flow.xlsx:										Visual flowchart of the test logic
-schemas/											JSON schema definitions
-screenshots/										Screenshots of test results,variables,request...etc.
+Hoàng Đỉnh - The Cat API.postman_collection.json: 	Chứa collection với test scripts
+MY_SERVICE_API_KEY=DEV.postman_environment.json:	Chứa Environment file có API key
+Test Flow.xlsx:										Minh họa logic kiểm thử
+schemas/											Định nghĩa JSON schema
+screenshots/										Screenshots của test results,variables,request...etc.
 
 
 Test Flow Logic
 
-The test suite follows a structured flow based on conditional execution:
+Quy trình kiểm thử được xây dựng theo luồng có điều kiện, nghĩa là chỉ tiếp tục nếu bước trước thành công:
 
 1. **GET /breeds**
    - ✅ Status code 200
-   - ✅ JSON schema validation for get all breeds
-   - ✅ Breed name, origin, and country code match expected values
-   - ✅ Image URL format check
-   - ✅ Security headers validation
-   - ✅ Response time < 500ms
+   - ✅ JSON schema validation cho tất cả giống mèo
+   - ✅ Kiểm tra dữ liệu giống mèo có đúng tên, nguồn gốc và mã quốc gia
+
 
 2. **POST /images/upload**
    - ✅ Status code 201
-   - ✅ JSON Schema validation for uploaded image
-   - ✅ Save all response fields as `expected_*` variables, UploadImage_id for later test.
-   - ✅ Redirect to next request only if upload is successful
+   - ✅ JSON Schema validation cho uploaded image
+   - ✅ Lưa lại thông tin cho tất cả các trường `expected_*` variables, UploadImage_id (primary key) cho những test sau.
+   - ✅ Chỉ tiếp tục nếu tải lên thành công.
 
 3. **GET /images?limit=10**
    - ✅ Status code 200
-   - ✅ Confirm uploaded image appears in response
-   - ✅ Compare each field with `expected_*` variables by find uploaded image id (primary key)
-   - ✅ JSON Schema validation get my image
-   - ✅ Response time and size checks
+   - ✅ Đảm bảo phản hồi thành công
+   - ✅ So sánh các field với `expected_*` variables bởi lọc bằng khóa UploadImage_id (primary key).
+   - ✅ JSON Schema validation cho mục ảnh của tôi.
+   - ✅ Chỉ tiếp tục nếu UploadImage_id có trong mục ảnh của tôi.
 
 4. **GET /images/{image_id}**
    - ✅ Status code 200
-   - ✅ Validate image detail data matches uploaded image
+   - ✅ Kiểm tra thông tin chi tiết có khớp với hình ảnh đã tải lên.
    - ✅ JSON Schema validation and field checks for get detail image
 
 5. **DELETE /images/{image_id}**
    - ✅ Status code 204 (no content)
    - ✅ Delete uploaded image
-   - 🔁 Retry logic if deletion fails (max 3 attempts)
-   - ✅ Confirm deletion via retry **GET /images?limit=10**
+   - 🔁 Thử lại tối đa 3 lần nếu xóa không thành công.
+   - ✅ Kiểm tra lại mục ảnh của tôi để xác nhận đã xóa bằng cách thử lại **GET /images?limit=10**
 
 ---
 
 Performance & Reliability Techniques
 
-To ensure speed and consistency, the project applies several advanced techniques:
+Để đảm bảo tốc độ và độ ổn định, dự án đã áp dụng nhiều kỹ thuật nâng cao:
 
-** Conditional Execution
-    - Uses pm.execution.setNextRequest() to control flow based on test outcomes.
-    - Stops execution immediately if critical steps fail (e.g., missing UploadImage_id).
-	
-** Dynamic Variable Management
-	- Stores runtime data like UploadImage_id, base_url, api-key, etc.
-	- Enables cross-request validation with high precision.
-	
-** Schema Validation with AJV
-	- Uses the Ajv library to validate JSON responses against strict schemas.
-	- Provides detailed error messages for debugging.
-	
-** Smart Retry Logic
-	- Implements retry mechanism for DELETE requests (up to 3 attempts).
-	- Improves reliability when API responses are inconsistent.
-	
-** Performance Checks
-	- Validates response time : etc (< 500ms) and payload size etc (< 2KB).
-	- Ensures the API remains fast and lightweight.
-	
-** Security Header Validation
-	- Verifies headers like x-frame-options and x-content-type-options.
-	- Ensures basic security compliance.
+** Thực thi có điều kiện
+
+	- Sử dụng pm.execution.setNextRequest() để điều hướng luồng kiểm thử dựa trên kết quả từng bước.
+
+	- Dừng ngay lập tức nếu bước quan trọng bị lỗi (ví dụ: thiếu UploadImage_id).
+
+** Quản lý biến động
+
+	- Lưu trữ dữ liệu phát sinh trong quá trình kiểm thử như UploadImage_id, base_url, api-key, v.v.
+
+	- Giúp kiểm tra chéo giữa các bước với độ chính xác cao.
+
+** Kiểm tra định dạng dữ liệu phản hồi
+
+	- Sử dụng thư viện Ajv để kiểm tra dữ liệu phản hồi có đúng định dạng quy định.
+
+	- Cung cấp thông báo lỗi chi tiết để dễ dàng xử lý.
+
+** Cơ chế thử lại thông minh
+
+	- Áp dụng cơ chế thử lại cho các yêu cầu xóa (tối đa 3 lần).
+
+	- Tăng độ tin cậy khi phản hồi từ API không ổn định.
+
+** Kiểm tra hiệu năng
+
+	- Kiểm tra thời gian phản hồi (ví dụ: dưới 500ms) và kích thước dữ liệu (ví dụ: dưới 2KB).
+
+	- Đảm bảo API hoạt động nhanh và nhẹ.
+
+** Kiểm tra tiêu chuẩn bảo mật
+
+	- Xác minh các tiêu đề bảo mật như x-frame-options và x-content-type-options.
+
+	- Đảm bảo tuân thủ các nguyên tắc bảo mật cơ bản.
 
 Test Summary
 
-- Total tests executed: 36
-- Execution time: ~10.6 seconds
-- Average response time: ~1.6 seconds
-- Pass rate: >90%
-- Failures are logged with detailed messages and conditional halts.
+_ Tổng số kiểm thử: 36
+_ Thời gian thực hiện: khoảng 10.6 giây
+_ Thời gian phản hồi trung bình: khoảng 1.6 giây
+_ Tỷ lệ thành công: trên 90%
+_ Các lỗi được ghi lại chi tiết và có cơ chế dừng kiểm thử khi cần thiết
 
 
-Sprint Planning & Agile Workflow
+Sprint & Quy Trình Agile
 
-This project followed Agile with four focused sprints, each delivering key components of the automated testing suite:
+Dự án được triển khai theo phương pháp Agile với 4 giai đoạn (sprint), mỗi giai đoạn hoàn thành một phần quan trọng của bộ kiểm thử tự động:
 
-Sprint 1: API Exploration & Environment Setup
-- Research The Cat API documentation
-- Define test objectives and endpoints
-- Configure Postman environment and variables
-- Design test flow logic in Excel
+Sprint 1 (19.10.25 - 20.10.25): API Exploration & Environment Setup
+- Nghiên cứu tài liệu của The Cat API
+- Xác định mục tiêu và các điểm kiểm thử
+- Cấu hình môi trường kiểm thử và các biến cần thiết
+- Thiết kế luồng kiểm thử bằng Excel
 
-Sprint 2: Collection Design & Test Scripting
-- Build Postman collection with CRUD requests
-- Implement test scripts for each endpoint
-- Validate schemas using Ajv
-- Apply conditional execution and dynamic variables
+Sprint 2 (21.10.25 - 24.10.25): Collection Design & Test Scripting
+- Tạo bộ kiểm thử với các yêu cầu thêm, sửa, xóa, kiểm tra
+- Viết kịch bản kiểm thử cho từng điểm kiểm thử
+- Validate schemas bằng Ajv
+- Áp dụng điều kiện kiểm thử và dynamic variables
 
-Sprint 3: Automation & Performance Validation
-- Automate test sequence with Collection Runner
-- Add response time and size checks
-- Validate security headers
-- Optimize retry logic and error handling
+Sprint 3 (25.10.25 - 25.10.25): Automation & Performance Validation
+- Tự động hóa toàn bộ quy trình kiểm thử bằng Collection Runner
+- Thêm kiểm tra thời gian phản hồi và kích thước dữ liệu
+- Kiểm tra tiêu chuẩn bảo mật
+- Tối ưu hóa cơ chế thử lại và xử lý lỗi
 
-Sprint 4: Documentation & Finalization
-- Capture screenshots and test results
-- Finalize README and test instructions
-- Organize project files, schemas, and screenshots
+Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
+- Chụp ảnh màn hình và lưu kết quả kiểm thử
+- Hoàn thiện tài liệu hướng dẫn sử dụng
+- Sắp xếp lại các tệp dự án, định dạng dữ liệu và ảnh chụp
 
 
 Notes:
-- The project was conducted independently by a single tester, with the use of automation tools.
+- Dự án được thực hiện độc lập bởi một người kiểm thử duy nhất.
+- Có sử dụng các công cụ tự động hỗ trợ kiểm thử:
  + Collection runner
  + Postman Environment
  + Ajv - "Another JSON Schema Validator"
  
-- Defects were logged based on actual behavior and user interface feedback.
