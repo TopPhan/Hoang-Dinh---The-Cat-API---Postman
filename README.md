@@ -1,4 +1,4 @@
-🐈 The Cat API Testing Project - https://api.thecatapi.com
+🐈 The Cat API Testing Project - https://thecatapi.com
 
 📅 Execution Period: October 19, 2025 – October 26, 2025
 
