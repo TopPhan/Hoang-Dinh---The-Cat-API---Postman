@@ -159,7 +159,7 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 NOTES:
 - The project was conducted independently by a single tester, with the use of automation tools.
 - Using automated testing tools:
- + Collection runner
- + Postman Environment
- + Ajv - "Another JSON Schema Validator"
+  _ Collection runner
+  _ Postman Environment
+  _ Ajv - "Another JSON Schema Validator"
  
