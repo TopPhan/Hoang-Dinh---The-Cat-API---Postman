@@ -70,7 +70,7 @@ The test suite follows a structured flow based on conditional execution:
 5. **DELETE /images/{image_id}**
    - ✅ Status code 204 (no content)
    - ✅ Delete uploaded image
-   - 🔁 Retry logic if deletion fails (max 3 attempts)
+   - 🔁 Retry logic if deletion fails (max 3 attempts). if it fails, stop the test.
    - ✅ Confirm deletion success by retry **3.GET /images?limit=10**
          ->  UploadImage_id is not found in my image, test done !.
 
