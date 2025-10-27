@@ -67,7 +67,7 @@ Quy trình kiểm thử được xây dựng theo luồng có điều kiện, ng
 ---
 PERFORMANCE & RELIABILITY TECHNIQUES
 
-Để đảm bảo tốc độ và độ ổn định, dự án đã áp dụng nhiều kỹ thuật nâng cao:
+Để đảm bảo tốc độ và độ ổn định, dự án đã áp dụng nhiều kỹ thuật:
 
 ** Thực thi có điều kiện
 
@@ -149,7 +149,10 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 NOTES:
 - Dự án được thực hiện độc lập bởi một người kiểm thử duy nhất.
 - Có sử dụng các công cụ tự động hỗ trợ kiểm thử:
+
  + Collection runner
+
  + Postman Environment
+
  + Ajv - "Another JSON Schema Validator"
  
