@@ -1,4 +1,4 @@
-🐈 The Cat API Testing Project - https://thecatapi.com
+🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
 
 📅 Execution Period: October 19, 2025 – October 26, 2025
 
@@ -9,9 +9,6 @@ OVERVIEW
 
 Hello! This project showcases how I use Postman scripting to take API
 focusing on CRUD operations for image and breed data, ensuring stability and speed in complex workflows.
-
-
-
 
 ---
 QUICK SETUP & DEMO
@@ -40,7 +37,6 @@ schemas/											JSON schema definitions
 screenshots/										Screenshots of test results,variables,request...etc.
 
 
-
 ---
 TEST FLOW LOGIC
 
@@ -49,39 +45,40 @@ The test suite follows a structured flow based on conditional execution:
 1. **GET /breeds**
    - ✅ Status code 200
    - ✅ JSON schema validation for get all breeds
+   - ✅ Save bread_id variable for later upload image request
    - ✅ Breed name, origin, and country code match expected values
-
 
 2. **POST /images/upload**
    - ✅ Status code 201
    - ✅ JSON Schema validation for uploaded image
-   - ✅ Save all response fields as `expected_*` variables, UploadImage_id for later test.
-   - ✅ Redirect to next request only if upload is successful
+   - ✅ Save all response fields as `expected_*` variables, UploadImage_id(primary key) for later test.
+   - ✅ If upload succeeds, move to next request. if it fails, stop the test.
 
 3. **GET /images?limit=10**
    - ✅ Status code 200
    - ✅ Confirm uploaded image appears in response
-   - ✅ Compare each field with `expected_*` variables by find uploaded image id (primary key)
+   - ✅ Compare each field with `expected_*` variables by find UploadImage_id(primary key)
    - ✅ JSON Schema validation get my image
-   - ✅ Response time and size checks
+   - ✅ If UploadImage_id is found in my image, move to next request. if it fails, stop the test.
 
 4. **GET /images/{image_id}**
    - ✅ Status code 200
    - ✅ Validate image detail data matches uploaded image
    - ✅ JSON Schema validation and field checks for get detail image
+   - ✅ If image detail data matches uploaded image, move to next request. if it fails, stop the test.
 
 5. **DELETE /images/{image_id}**
    - ✅ Status code 204 (no content)
    - ✅ Delete uploaded image
    - 🔁 Retry logic if deletion fails (max 3 attempts)
-   - ✅ Confirm deletion via retry **GET /images?limit=10**
+   - ✅ Confirm deletion success by retry **3.GET /images?limit=10**
+         ->  UploadImage_id is not found in my image, test done !.
+
 
 ---
-
-
 PERFORMANCE & RELIABILITY TECHNIQUES
 
-To ensure speed and consistency, the project applies several advanced techniques:
+To ensure speed and consistency, the project applies several techniques:
 
 ** Conditional Execution
 
@@ -161,6 +158,7 @@ Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
 ---
 NOTES:
 - The project was conducted independently by a single tester, with the use of automation tools.
+- Using automated testing tools:
  + Collection runner
  + Postman Environment
  + Ajv - "Another JSON Schema Validator"
