@@ -127,29 +127,29 @@ TEST SUMMARY
 
 
 ---
-SPRINT PLANNING & AGILE WORKFLOW
+PLANNING &  WORKFLOW
 
-This project followed Agile with four focused sprints, each delivering key components of the automated testing suite:
+This project followed four focused staged, each delivering key components of the automated testing suite:
 
-Sprint 1 (19.10.25 - 20.10.25): API Exploration & Environment Setup
+Stage 1 (19.10.25 - 20.10.25): API Exploration & Environment Setup
 - Research The Cat API documentation
 - Define test objectives and endpoints
 - Configure Postman environment and variables
 - Design test flow logic in Excel
 
-Sprint 2 (21.10.25 - 24.10.25): Collection Design & Test Scripting
+Stage 2 (21.10.25 - 24.10.25): Collection Design & Test Scripting
 - Build Postman collection with CRUD requests
 - Implement test scripts for each endpoint
 - Validate schemas using Ajv
 - Apply conditional execution and dynamic variables
 
-Sprint 3 (25.10.25 - 25.10.25): Automation & Performance Validation
+Stage 3 (25.10.25 - 25.10.25): Automation & Performance Validation
 - Automate test sequence with Collection Runner
 - Add response time and size checks
 - Validate security headers
 - Optimize retry logic and error handling
 
-Sprint 4 (26.10.25 - 26.10.25): Documentation & Finalization
+Stage 4 (26.10.25 - 26.10.25): Documentation & Finalization
 - Capture screenshots and test results
 - Finalize README and test instructions
 - Organize project files, schemas, and screenshots
