@@ -26,7 +26,7 @@
 - [Key Techniques Explained](#-key-techniques-explained)
 - [Collection Variables](#-collection-variables)
 - [Test Summary & Results](#-test-summary--results)
-- [Sprint Planning](#-sprint-planning)
+- [Planning](#-sprint-planning)
 
 ---
 
@@ -218,6 +218,8 @@ The entire CRUD flow executes automatically, self-validating at every step.
 
 ### 1. `GET /breeds`
 **Endpoint:** `GET https://api.thecatapi.com/v1/breeds`
+![Get-All-Breeds - Test results](https://github.com/user-attachments/assets/fb7b8280-7ee1-41de-9f05-ff35f58abd7b)
+
 
 | # | Test Case | Assertion |
 |---|---|---|
@@ -235,6 +237,8 @@ The entire CRUD flow executes automatically, self-validating at every step.
 
 ### 2. `POST /images/upload`
 **Endpoint:** `POST https://api.thecatapi.com/v1/images/upload`
+![Post-Upload-Image - Test results](https://github.com/user-attachments/assets/802c8bc8-842f-4866-8522-2ed693413996)
+
 
 | # | Test Case | Assertion |
 |---|---|---|
@@ -254,6 +258,8 @@ The entire CRUD flow executes automatically, self-validating at every step.
 
 ### 3. `GET /images?limit=10`
 **Endpoint:** `GET https://api.thecatapi.com/v1/images?limit=10`
+![Get-My-Image - Test results](https://github.com/user-attachments/assets/e99ccc72-5bae-4504-bfee-6a13571801a3)
+
 
 | # | Test Case | Assertion |
 |---|---|---|
@@ -271,6 +277,8 @@ The entire CRUD flow executes automatically, self-validating at every step.
 
 ### 4. `GET /images/{image_id}/analysis`
 **Endpoint:** `GET https://api.thecatapi.com/v1/images/{UploadImage_id}/analysis`
+![Get-Image-Detail - Test results](https://github.com/user-attachments/assets/8fd560fd-8d83-4754-9874-f45228716040)
+
 
 | # | Test Case | Assertion |
 |---|---|---|
@@ -288,6 +296,8 @@ The entire CRUD flow executes automatically, self-validating at every step.
 
 ### 5. `DELETE /images/{image_id}`
 **Endpoint:** `DELETE https://api.thecatapi.com/v1/images/{UploadImage_id}`
+![Delete-Image - Test results](https://github.com/user-attachments/assets/40204c93-0cfe-4c67-bbfb-a31522b9e67c)
+
 
 | # | Test Case | Assertion |
 |---|---|---|
