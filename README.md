@@ -184,6 +184,13 @@ The entire CRUD flow executes automatically, self-validating at every step.
                        │
           ✅ Test Complete — Image lifecycle verified!
 ```
+![Runner Collection (1)](https://github.com/user-attachments/assets/59f18ad8-34e3-4f4f-85ed-63904b6525ef)
+---
+![Runner Collection (2)](https://github.com/user-attachments/assets/c3fe4bb0-6ed2-41fb-bb54-450de78d53c5)
+---
+![Runner Collection (3)](https://github.com/user-attachments/assets/2234b994-7762-4233-bcc7-3c610e5b638d)
+---
+![Runner Collection (4)](https://github.com/user-attachments/assets/fa93ffd8-7842-4dc9-b87a-7dba398fcd90)
 
 ### Architecture Overview
 
