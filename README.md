@@ -9,11 +9,10 @@
 
 ## 🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
 
+A structured, automated API testing collection built with **Postman** targeting [The Cat API](https://api.thecatapi.com/v1). Covers a full **CRUD image lifecycle** with conditional execution flow, AJV JSON Schema validation, dynamic variable chaining, retry logic, performance checks, and security header verification. 
 
 <img width="1341" height="611" alt="image" src="https://github.com/user-attachments/assets/deed6e15-cd44-44c3-b59f-22e8beed5895" />
 
----
-> A structured, automated API testing collection built with **Postman** targeting [The Cat API](https://api.thecatapi.com/v1). Covers a full **CRUD image lifecycle** with conditional execution flow, AJV JSON Schema validation, dynamic variable chaining, retry logic, performance checks, and security header verification. 
 ---
 
 ![Test Flow](https://github.com/user-attachments/assets/233531fb-bf65-475e-9ca4-d76cc3383676)
