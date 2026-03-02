@@ -2,11 +2,10 @@
 ![Scripting](https://img.shields.io/badge/Scripting-JavaScript_Tests-yellow?style=for-the-badge&logo=javascript)
 <br>
 ![Pass Rate](https://img.shields.io/badge/Pass_Rate-%3E90%25-brightgreen?style=flat-square)
-<br>
 ![Assertions](https://img.shields.io/badge/Assertions-29_Checkpoints-orange?style=flat-square)
-<br>
 ![Flow](https://img.shields.io/badge/Logic-Conditional_CRUD_Flow-blueviolet?style=flat-square)
 
+---
 
 ## 🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
 
