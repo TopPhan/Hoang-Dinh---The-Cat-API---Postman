@@ -1,8 +1,16 @@
-🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
+![Postman](https://img.shields.io/badge/Postman-v11+-FF6C37?style=for-the-badge&logo=postman)
+![Scripting](https://img.shields.io/badge/Scripting-JavaScript_Tests-yellow?style=for-the-badge&logo=javascript)
+<br>
+![Pass Rate](https://img.shields.io/badge/Pass_Rate-%3E90%25-brightgreen?style=flat-square)
+<br>
+![Assertions](https://img.shields.io/badge/Assertions-29_Checkpoints-orange?style=flat-square)
+<br>
+![Flow](https://img.shields.io/badge/Logic-Conditional_CRUD_Flow-blueviolet?style=flat-square)
 
-📅 Execution Period: October 19, 2025 – October 26, 2025
 
-👤 Tester: Hoàng Đỉnh
+## 🐈 The Cat API Testing Project - https://api.thecatapi.com/v1
+
+
 <img width="1341" height="611" alt="image" src="https://github.com/user-attachments/assets/deed6e15-cd44-44c3-b59f-22e8beed5895" />
 
 ---
